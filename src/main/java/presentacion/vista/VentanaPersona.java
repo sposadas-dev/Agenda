@@ -29,19 +29,19 @@ public class VentanaPersona extends JFrame
 		super();
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 343, 183);
+		setBounds(100, 100, 552, 183);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 307, 123);
+		panel.setBounds(10, 0, 530, 143);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNombreYApellido = new JLabel("Nombre y apellido");
-		lblNombreYApellido.setBounds(10, 11, 113, 14);
+		lblNombreYApellido.setBounds(10, 11, 136, 14);
 		panel.add(lblNombreYApellido);
 		
 		JLabel lblTelfono = new JLabel("Telefono");
@@ -49,17 +49,17 @@ public class VentanaPersona extends JFrame
 		panel.add(lblTelfono);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(133, 8, 164, 20);
+		txtNombre.setBounds(164, 9, 164, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtTelefono = new JTextField();
-		txtTelefono.setBounds(133, 49, 164, 20);
+		txtTelefono.setBounds(164, 50, 164, 20);
 		panel.add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
 		btnAgregarPersona = new JButton("Agregar");
-		btnAgregarPersona.setBounds(208, 92, 89, 23);
+		btnAgregarPersona.setBounds(208, 92, 107, 23);
 		panel.add(btnAgregarPersona);
 		
 		this.setVisible(false);
@@ -93,4 +93,5 @@ public class VentanaPersona extends JFrame
 	}
 	
 }
+
 

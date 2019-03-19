@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import modelo.Agenda;
 import presentacion.reportes.ReporteAgenda;
+import presentacion.vista.VentanaEditar;
 import presentacion.vista.VentanaPersona;
 import presentacion.vista.Vista;
 import dto.PersonaDTO;
@@ -14,11 +15,15 @@ public class Controlador implements ActionListener
 		private Vista vista;
 		private List<PersonaDTO> personas_en_tabla;
 		private VentanaPersona ventanaPersona; 
+		private VentanaEditar ventanaEditar;
 		private Agenda agenda;
 		
 		public Controlador(Vista vista, Agenda agenda)
 		{
 			this.vista = vista;
+			this.ventanaEditar = VentanaEditar.getInstance();
+			this.ventanaEditar.getBtnAceptar().addActionListener(w->guardarEdicion(w));
+			this.vista.getBtnEditar().addActionListener(e->editarPersona(e));
 			this.vista.getBtnAgregar().addActionListener(a->ventanaAgregarPersona(a));
 			this.vista.getBtnBorrar().addActionListener(s->borrarPersona(s));
 			this.vista.getBtnReporte().addActionListener(r->mostrarReporte(r));
@@ -39,6 +44,26 @@ public class Controlador implements ActionListener
 			this.ventanaPersona.cerrar();
 		}
 
+		private void editarPersona(ActionEvent e) {
+			int[] filas_seleccionadas = this.vista.getTablaPersonas().getSelectedRows();
+			
+			if(filas_seleccionadas.length>0) {
+			this.ventanaEditar.mostrarVentana();
+			}
+		}
+		
+		private void guardarEdicion(ActionEvent w) {
+			int columnaPersona = this.vista.getTablaPersonas().getSelectedColumn();
+			int filaPersona = this.vista.getTablaPersonas().getSelectedRow();
+			//PersonaDTO personaAEditar = new PersonaDTO((int)this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona)+1, this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona+1).toString(), this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona+2).toString());
+			//System.out.println(this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona)+", "+personaAEditar.getNombre()+", "+personaAEditar.getTelefono());
+			//System.out.println(ventanaEditar.getTextFieldNombre().getText()+", "+ventanaEditar.getTextFieldTelefono().getText());
+				this.agenda.editarPersona((int) this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona), ventanaEditar.getTextFieldNombre().getText(), ventanaEditar.getTextFieldTelefono().getText());
+				this.llenarTabla();
+			this.ventanaEditar.setVisible(false);
+			
+		}
+		
 		private void mostrarReporte(ActionEvent r) {
 			ReporteAgenda reporte = new ReporteAgenda(agenda.obtenerPersonas());
 			reporte.mostrar();	
@@ -70,7 +95,7 @@ public class Controlador implements ActionListener
 			this.personas_en_tabla = agenda.obtenerPersonas();
 			for (int i = 0; i < this.personas_en_tabla.size(); i ++)
 			{
-				Object[] fila = {this.personas_en_tabla.get(i).getNombre(), this.personas_en_tabla.get(i).getTelefono()};
+				Object[] fila = {this.personas_en_tabla.get(i).getIdPersona(),this.personas_en_tabla.get(i).getNombre(), this.personas_en_tabla.get(i).getTelefono()};
 				this.vista.getModelPersonas().addRow(fila);
 			}			
 		}

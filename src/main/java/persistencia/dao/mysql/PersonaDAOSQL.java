@@ -13,6 +13,7 @@ import dto.PersonaDTO;
 public class PersonaDAOSQL implements PersonaDAO
 {
 	private static final String insert = "INSERT INTO personas(idPersona, nombre, telefono) VALUES(?, ?, ?)";
+	private static final String edit = "UPDATE personas SET Nombre = ?, Telefono=? WHERE idPersona=?";
 	private static final String delete = "DELETE FROM personas WHERE idPersona = ?";
 	private static final String readall = "SELECT * FROM personas";
 		
@@ -78,5 +79,27 @@ public class PersonaDAOSQL implements PersonaDAO
 			e.printStackTrace();
 		}
 		return personas;
+	}
+
+	public boolean edit(int idPersonaAEditar, String nombre, String telefono) {
+		PreparedStatement statement;
+		int chequeoUpdate = 0;
+		Conexion conexion = Conexion.getConexion();
+		try 
+		{
+			statement = conexion.getSQLConexion().prepareStatement(edit);
+			statement.setString(1, nombre);
+			statement.setString(2, telefono);
+			statement.setLong(3, idPersonaAEditar);
+			chequeoUpdate = statement.executeUpdate();
+			if(chequeoUpdate > 0) //Si se ejecutó devuelvo true
+				return true;
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return false;
+
 	}
 }

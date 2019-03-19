@@ -19,6 +19,11 @@ public class Agenda
 	{
 		this.persona.insert(nuevaPersona);
 	}
+	
+	public void editarPersona(int idPersonaAEditar, String nombre, String telefono) 
+	{
+		this.persona.edit(idPersonaAEditar, nombre, telefono);	
+	}
 
 	public void borrarPersona(PersonaDTO persona_a_eliminar) 
 	{
