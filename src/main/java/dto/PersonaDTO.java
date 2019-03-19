@@ -5,13 +5,18 @@ public class PersonaDTO
 	private int idPersona;
 	private String nombre;
 	private String telefono;
+	//private int idDomicilio;
+	//private int idTipoDeContacto;
+	
 	
 
-	public PersonaDTO(int idPersona, String nombre, String telefono)
+	public PersonaDTO(int idPersona, String nombre, String telefono/*,int idDomicilio, int idTipoDeContacto*/)
 	{
 		this.idPersona = idPersona;
 		this.nombre = nombre;
 		this.telefono = telefono;
+		//this.setIdDomicilio(idDomicilio);
+		//this.setIdTipoDeContacto(idTipoDeContacto);
 	}
 	
 	public int getIdPersona() 
@@ -43,4 +48,20 @@ public class PersonaDTO
 	{
 		this.telefono = telefono;
 	}
+
+	/*public int getIdDomicilio() {
+		return idDomicilio;
+	}
+
+	public void setIdDomicilio(int idDomicilio) {
+		this.idDomicilio = idDomicilio;
+	}
+
+	public int getIdTipoDeContacto() {
+		return idTipoDeContacto;
+	}
+
+	public void setIdTipoDeContacto(int idTipoDeContacto) {
+		this.idTipoDeContacto = idTipoDeContacto;
+	}*/
 }
