@@ -5,6 +5,7 @@ public class PersonaDTO
 	private int idPersona;
 	private String nombre;
 	private String telefono;
+	
 
 	public PersonaDTO(int idPersona, String nombre, String telefono)
 	{
