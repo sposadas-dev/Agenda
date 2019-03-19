@@ -21,8 +21,6 @@ public class VentanaCambios extends JFrame{
 	public enum Tipo {Localidades , TiposContacto};
 	private VentanaCambios.Tipo tipo;
 	
-	
-	//buttons
 	private JButton agregar;
 	private JButton Borrar;
 	private JButton aceptar;

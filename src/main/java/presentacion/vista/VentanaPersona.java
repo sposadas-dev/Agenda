@@ -36,6 +36,7 @@ public class VentanaPersona extends JFrame
 	public VentanaPersona() {
 		
 	}
+	
 	public VentanaPersona(Controlador controlador, VentanaPersona.TipoVentana tipo) 
 	{
 		super();
@@ -66,6 +67,7 @@ public class VentanaPersona extends JFrame
 		cambiarLocalidades.addActionListener(this.controlador);
 		cambiarLocalidades.setBounds(285, 172, 20, 20);
 		panel.add(cambiarLocalidades);
+		
 		JLabel lblNombreApellido = new JLabel("Nombre Apellido");
 		lblNombreApellido.setBounds(10, 11, 113, 14);
 		panel.add(lblNombreApellido);
@@ -98,6 +100,10 @@ public class VentanaPersona extends JFrame
 		lbletiqueta.setBounds(10, 298, 113, 14);
 		panel.add(lbletiqueta);
 		
+		btnAceptar = new JButton( "Aceptar");
+		btnAceptar.addActionListener(this.controlador);
+		btnAceptar.setBounds(110, 345 , 180 , 40);
+		panel.add(btnAceptar);
 		
 		//JtextFields
 		txtNombre = new JTextField();
