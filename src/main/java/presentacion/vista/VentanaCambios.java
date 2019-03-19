@@ -50,7 +50,6 @@ public class VentanaCambios extends JFrame{
 		
 		this.setVisible(true);
 		
-		
 		JScrollPane spLocalidades = new JScrollPane();
 		spLocalidades.setBounds(10, 11, 200, 390);
 		panel.add(spLocalidades);

@@ -21,7 +21,7 @@ public class TipoContactoDAOSQL implements TipoContactoDAO {
 	@Override
 	public List<TipoContactoDTO> readAll() throws Exception {
 		PreparedStatement statement;
-		ResultSet resultSet; //Guarda el resultado de la query
+		ResultSet resultSet;
 		ArrayList<TipoContactoDTO> tipos = new ArrayList<TipoContactoDTO>();
 		Conexion conexion = Conexion.getConexion();
 		try 
@@ -31,7 +31,6 @@ public class TipoContactoDAOSQL implements TipoContactoDAO {
 			
 			while(resultSet.next())
 			{
-				///XXX: los agrego para que veas puntualmente donde hice cambios
 				tipos.add(new TipoContactoDTO(resultSet.getInt("idTipo"), resultSet.getString("Nombre")));
 			}
 		} 
@@ -75,7 +74,7 @@ public class TipoContactoDAOSQL implements TipoContactoDAO {
 			statement = conexion.getSQLConexion().prepareStatement(delete);
 			statement.setString(1, Integer.toString(tipo_a_eliminar.getIdTipo()));
 			chequeoUpdate = statement.executeUpdate();
-			if(chequeoUpdate > 0) //Si se ejecutÃ³ devuelvo true
+			if(chequeoUpdate > 0)
 				return true;
 		} 
 		catch (SQLException e) 
@@ -99,7 +98,7 @@ public class TipoContactoDAOSQL implements TipoContactoDAO {
 			statement.setInt(2, editado.getIdTipo());
 			
 			chequeoUpdate = statement.executeUpdate();
-			if(chequeoUpdate > 0) //Si se ejecutÃ³ devuelvo true
+			if(chequeoUpdate > 0) 
 				return true;
 		} 
 		catch (SQLException e) 

@@ -28,7 +28,6 @@ public class PersonaDAOSQL implements PersonaDAO
 		Conexion conexion = Conexion.getConexion();
 		try 
 		{
-			//XXX: and some other changes over here
 			statement = conexion.getSQLConexion().prepareStatement(insert);
 			statement.setInt(1, persona.getIdPersona());
 			statement.setString(2, persona.getNombre());
@@ -45,7 +44,7 @@ public class PersonaDAOSQL implements PersonaDAO
 			}
 			statement.setInt(9, persona.getTipo().getIdTipo());
 			
-			if(statement.executeUpdate() > 0) //Si se ejecutï¿½ devuelvo true
+			if(statement.executeUpdate() > 0)
 				return true;
 		} 
 		catch (SQLException e) 
@@ -66,7 +65,7 @@ public class PersonaDAOSQL implements PersonaDAO
 			statement = conexion.getSQLConexion().prepareStatement(delete);
 			statement.setString(1, Integer.toString(persona_a_eliminar.getIdPersona()));
 			chequeoUpdate = statement.executeUpdate();
-			if(chequeoUpdate > 0) //Si se ejecutÃ³ devuelvo true
+			if(chequeoUpdate > 0) 
 				return true;
 		} 
 		catch (SQLException e) 
@@ -123,7 +122,6 @@ public class PersonaDAOSQL implements PersonaDAO
 	}
 
 	public boolean update(PersonaDTO persona_a_editar) throws Exception {
-		//more magic
 		PreparedStatement statement;
 		int chequeoUpdate = 0;
 		Conexion conexion = Conexion.getConexion();
@@ -142,7 +140,7 @@ public class PersonaDAOSQL implements PersonaDAO
 			
 			statement.setInt(9, persona_a_editar.getIdPersona());
 			chequeoUpdate = statement.executeUpdate();
-			if(chequeoUpdate > 0) //Si se ejecutÃ³ devuelvo true
+			if(chequeoUpdate > 0)
 				return true;
 		} 
 		catch (SQLException e) 

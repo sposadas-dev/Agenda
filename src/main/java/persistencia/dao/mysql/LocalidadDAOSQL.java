@@ -51,7 +51,7 @@ public class LocalidadDAOSQL implements LocalidadDAO {
 			statement = conexion.getSQLConexion().prepareStatement(delete);
 			statement.setString(1, Integer.toString(localidad_a_eliminar.getIdLocalidad()));
 			chequeoUpdate = statement.executeUpdate();
-			if(chequeoUpdate > 0) //Si se ejecutÃ³ devuelvo true
+			if(chequeoUpdate > 0) //Si se ejecuta devuelvo true
 				return true;
 		} 
 		catch (SQLException e) 
@@ -75,7 +75,6 @@ public class LocalidadDAOSQL implements LocalidadDAO {
 			
 			while(resultSet.next())
 			{
-				///XXX: los agrego para que veas puntualmente donde hice cambios
 				localidades.add(new LocalidadDTO(resultSet.getInt("idLocalidad"), resultSet.getString("Nombre")));
 			}
 		} 
@@ -99,7 +98,7 @@ public class LocalidadDAOSQL implements LocalidadDAO {
 			statement.setInt(2, editada.getIdLocalidad());
 			
 			chequeoUpdate = statement.executeUpdate();
-			if(chequeoUpdate > 0) //Si se ejecutÃ³ devuelvo true
+			if(chequeoUpdate > 0)
 				return true;
 		} 
 		catch (SQLException e) 
