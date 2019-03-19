@@ -55,9 +55,9 @@ public class Controlador implements ActionListener
 		private void guardarEdicion(ActionEvent w) {
 			int columnaPersona = this.vista.getTablaPersonas().getSelectedColumn();
 			int filaPersona = this.vista.getTablaPersonas().getSelectedRow();
-			//PersonaDTO personaAEditar = new PersonaDTO((int)this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona)+1, this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona+1).toString(), this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona+2).toString());
-			//System.out.println(this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona)+", "+personaAEditar.getNombre()+", "+personaAEditar.getTelefono());
-			//System.out.println(ventanaEditar.getTextFieldNombre().getText()+", "+ventanaEditar.getTextFieldTelefono().getText());
+			PersonaDTO personaAEditar = new PersonaDTO((int) this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona), this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona+1).toString(), this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona+2).toString());
+			System.out.println(this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona)+", "+personaAEditar.getNombre()+", "+personaAEditar.getTelefono());
+			System.out.println(ventanaEditar.getTextFieldNombre().getText()+", "+ventanaEditar.getTextFieldTelefono().getText());
 				this.agenda.editarPersona((int) this.vista.getTablaPersonas().getValueAt(filaPersona, columnaPersona), ventanaEditar.getTextFieldNombre().getText(), ventanaEditar.getTextFieldTelefono().getText());
 				this.llenarTabla();
 			this.ventanaEditar.setVisible(false);
