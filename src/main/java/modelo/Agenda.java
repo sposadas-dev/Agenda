@@ -15,19 +15,24 @@ public class Agenda
 		this.persona = metodo_persistencia.createPersonaDAO();
 	}
 	
-	public void agregarPersona(PersonaDTO nuevaPersona)
+	public void agregarPersona(PersonaDTO nuevaPersona) throws Exception
 	{
 		this.persona.insert(nuevaPersona);
 	}
 
-	public void borrarPersona(PersonaDTO persona_a_eliminar) 
+	public void borrarPersona(PersonaDTO persona_a_eliminar) throws Exception 
 	{
 		this.persona.delete(persona_a_eliminar);
 	}
 	
-	public List<PersonaDTO> obtenerPersonas()
+	public List<PersonaDTO> obtenerPersonas() throws Exception
 	{
 		return this.persona.readAll();		
+	}
+	
+	public void editarPersona(PersonaDTO editada) throws Exception
+	{
+		this.persona.update(editada);
 	}
 	
 }
