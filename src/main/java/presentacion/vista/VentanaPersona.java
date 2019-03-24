@@ -152,12 +152,7 @@ public class VentanaPersona extends JFrame
 	
 	private void generarBoton(VentanaPersona.TipoVentana tipo )
 	{
-		if (tipo == VentanaPersona.TipoVentana.Editable)
-		{
-			this.btnAceptar = new JButton ("Guardar");
-			this.btnAceptar.setBounds(208, 350, 89, 23);
-			panel.add(this.btnAceptar);
-		}
+		
 	}
 	
 	public JButton getAceptar()

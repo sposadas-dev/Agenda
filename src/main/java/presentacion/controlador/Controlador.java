@@ -182,6 +182,24 @@ public class Controlador implements ActionListener
 				this.fillPersona(this.ventanaPersona, seleccionada);
 			}
 		}
+		
+		//BOTON DE REPORTE
+		else if(e.getSource() == this.vista.getBtnReporte())
+		{				
+			ReporteAgenda reporte = new ReporteAgenda(agenda_model.obtenerPersonas());
+			reporte.mostrar();				
+		}
+		else if ( e.getSource() == this.ventanaPersona.getCambiarLocalidades())
+		{
+			this.ventanaCambios = new VentanaCambios(this, VentanaCambios.Tipo.Localidades);
+			llenarTablaCambios();
+		}
+		else if ( e.getSource() == this.ventanaPersona.getCambiarTipos() )
+		{
+			this.ventanaCambios = new VentanaCambios (this, VentanaCambios.Tipo.TiposContacto);
+			llenarTablaCambios();
+		}
+		
 		//BOTON QUE BORRA
 		else if(e.getSource() == this.vista.getBtnBorrar())
 		{

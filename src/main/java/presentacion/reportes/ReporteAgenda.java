@@ -41,6 +41,11 @@ public class ReporteAgenda
 		}
     }       
     
+    /*
+     *  Reporte por localidad y ordenados alfabéticamente
+		Y mostrar gráfico por cada letra
+		subtotal
+     */
     public void mostrar()
 	{
 		this.reporteViewer = new JasperViewer(this.reporteLleno,false);
